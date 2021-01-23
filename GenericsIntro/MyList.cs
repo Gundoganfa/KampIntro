@@ -23,5 +23,15 @@ namespace GenericsIntro
 
             items[items.Length - 1] = item; // arrayin son elemanı olarak, ADD'a gelen item'i ekleyebiliriz artık
         }
+
+        public int Length
+        {
+            get { return items.Length; }
+        }
+        public T[] Items
+        {
+            get { return items; }
+        }
+
     }
 }
