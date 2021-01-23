@@ -7,14 +7,18 @@ namespace OOP3
     class BasvuruManager
     {
         //Method Injection
-        public void BasvuruYap(ICreditManager creditManager, ILoggerService loggerService)
+        public void BasvuruYap(ICreditManager creditManager, List<ILoggerService> loggerServices)
         {
             // Başvuran bilgilerini değerlendirme
             // başka başka şeyler
 
             // kredi hangi turde gelirde gelsin dogru kredinin calculate metodu çalışır
             creditManager.Calculate();
-            loggerService.Log();
+            foreach (var item in loggerServices)
+            {
+                item.Log();
+            }
+            
         }
 
         public void CreditInformation(List<ICreditManager> credits)

@@ -17,8 +17,9 @@ namespace OOP3
 
             BasvuruManager basvuruManager = new BasvuruManager();
 
-            basvuruManager.BasvuruYap(konutCreditManager, dbLoggerService);
-            basvuruManager.BasvuruYap(konutCreditManager, fileLoggerService);
+            basvuruManager.BasvuruYap(konutCreditManager, new List<ILoggerService> { dbLoggerService, fileLoggerService });
+            
+            basvuruManager.BasvuruYap(konutCreditManager, new List<ILoggerService> { fileLoggerService });
 
             List<ICreditManager> credits = new List<ICreditManager>();
             credits.Add(ihtiyacCreditManager);
